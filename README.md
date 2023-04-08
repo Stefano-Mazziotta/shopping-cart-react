@@ -2,7 +2,7 @@
 
 Ecommerce
 
-- [] Muestra una lista de productos que vienen de un JSON
+- [x] display products list from a JSON.
 - [] Añade un filtro por categoría
 - [] Añade un filtro por precio
 
