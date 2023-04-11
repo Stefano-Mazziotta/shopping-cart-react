@@ -6,12 +6,12 @@ import { Products } from './components/products'
 import { useFilters } from './hooks/useFilters'
 
 export default function App() {
-  const { filters, updateFilters, filterProducts } = useFilters()
-  const productsFiltered = filterProducts(productsData, filters)
+  const { filterProducts } = useFilters()
+  const productsFiltered = filterProducts(productsData)
 
   return (
     <div className="App">
-      <Header filters={filters} updateFilters={updateFilters} />
+      <Header />
       <Products products={productsFiltered} />
     </div>
   )

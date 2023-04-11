@@ -1,16 +1,12 @@
 import { useState } from "react"
+import { FiltersContext } from "../contexts/filters";
+import { useContext } from "react";
 
 export function useFilters() {
-    const [filters, setFilters] = useState({
-        category: 'all',
-        minPrice: 200
-    })
+    
+    const { filters, updateFilters } = useContext(FiltersContext) 
 
-    const updateFilters = (newFilters) => {
-        setFilters(newFilters)
-    }
-
-    const filterProducts = (products, filters) => {
+    const filterProducts = (products) => {
         return products.filter(product => {
             return ('all' == filters.category || product.category == filters.category) &&
                 (product.price >= filters.minPrice);

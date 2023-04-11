@@ -1,6 +1,9 @@
 import './style.css'
+import { useFilters } from '../../hooks/useFilters'
 
-export function Filters({ filters, updateFilters }) {
+export function Filters() {
+
+  const {filters, updateFilters} = useFilters()
 
   const handleChangeMinPrice = (event) => {
     const newMinPrice = event.target.value
