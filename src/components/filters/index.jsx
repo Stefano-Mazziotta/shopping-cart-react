@@ -1,5 +1,6 @@
-export function Filters({ filters, updateFilters }) {
+import './style.css'
 
+export function Filters({ filters, updateFilters }) {
 
   const handleChangeMinPrice = (event) => {
     const newMinPrice = event.target.value
@@ -15,11 +16,12 @@ export function Filters({ filters, updateFilters }) {
 
   return (
     <section className='filters-container'>
-      <div>
-        <label htmlFor="minprice">Minimum price - ${filters.minPrice}</label>
+      <div className='input-wrap'>
+        <label htmlFor="minprice">Minimum price</label>
         <input type="range" name="minprice" id="minprice" min="0" max="3000" onChange={handleChangeMinPrice} />
+        <span>${filters.minPrice}</span>
       </div>
-      <div>
+      <div className='input-wrap'>
         <label htmlFor="category">Category</label>
         <select name="category" id="" onChange={handleChangeCategory}>
           <option value="all">All</option>
