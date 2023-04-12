@@ -1,6 +1,6 @@
 import './style.css'
 
-export function Products({ products }) {
+export function Products ({ products }) {
   return (
     <main className='products'>
       <ul>

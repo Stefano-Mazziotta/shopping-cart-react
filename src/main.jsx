@@ -10,5 +10,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <FiltersProvider>
       <App />
     </FiltersProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
