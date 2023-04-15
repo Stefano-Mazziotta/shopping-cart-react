@@ -2,8 +2,7 @@ import './style.css'
 import { ProductItem } from './ProductItem'
 
 export function Products ({ products }) {
-
-  const existProducts = products.length > 0 
+  const existProducts = products.length > 0
 
   return (
     <main className='products'>
@@ -11,7 +10,7 @@ export function Products ({ products }) {
         {
           products.map(product => {
             return (
-              <ProductItem 
+              <ProductItem
                 key={product.id}
                 product={product}
               />

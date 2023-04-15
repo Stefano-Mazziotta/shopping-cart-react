@@ -5,7 +5,7 @@ import { CartIcon } from '../icons'
 import { CartItem } from './CartItem'
 import { useCart } from '../../hooks/useCart'
 
-export function Cart() {
+export function Cart () {
   const { cart, decrementQuantity, incrementQuantity } = useCart()
 
   const cartCheckboxId = useId()
@@ -22,16 +22,18 @@ export function Cart() {
         <ul>
           {
             cart.map(product => {
-              return <CartItem
-                key={product.id}
-                product={product}
-                decrementQuantity={decrementQuantity}
-                incrementQuantity={incrementQuantity} 
-              />
+              return (
+                <CartItem
+                  key={product.id}
+                  product={product}
+                  decrementQuantity={decrementQuantity}
+                  incrementQuantity={incrementQuantity}
+                />
+              )
             })
           }
         </ul>
-        {!existProductsInCart && <p style={{paddingTop:'20px'}}>No hay productos en el carrito</p>}
+        {!existProductsInCart && <p style={{ paddingTop: '20px' }}>No hay productos en el carrito</p>}
       </aside>
     </>
   )
