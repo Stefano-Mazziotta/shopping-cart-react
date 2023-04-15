@@ -1,5 +1,7 @@
 import { products as productsData } from './mocks/products.json'
 
+import { CartProvider } from './contexts/cart'
+import { Cart } from './components/cart'
 import { Header } from './components/header'
 import { Products } from './components/products'
 
@@ -11,8 +13,11 @@ export default function App () {
 
   return (
     <div className='App'>
-      <Header />
-      <Products products={productsFiltered} />
+      <CartProvider>
+        <Cart />
+        <Header />
+        <Products products={productsFiltered} />
+      </CartProvider>
     </div>
   )
 }
