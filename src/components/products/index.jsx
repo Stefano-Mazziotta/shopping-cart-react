@@ -9,7 +9,14 @@ export function Products ({ products }) {
     <main className='products'>
       <ul>
         {
-          products.map(product => <ProductItem product={product} />)
+          products.map(product => {
+            return (
+              <ProductItem 
+                key={product.id}
+                product={product}
+              />
+            )
+          })
         }
       </ul>
       {

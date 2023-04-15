@@ -22,7 +22,7 @@ export function ProductItem({ product }) {
     const classActionCartButton = isProductInCart ? 'remove-from-cart' : 'add-to-cart'
 
     return (
-        <li key={product.id}>
+        <li>
             <div>
                 <img src={product.thumbnail} alt={product.description} />
             </div>
