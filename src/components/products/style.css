@@ -41,3 +41,11 @@
     object-fit: cover;
     background: #fff;
 }
+
+.products .add-to-cart{
+    background-color: #09f;
+}
+
+.products .remove-from-cart{
+    background-color: red;
+}
