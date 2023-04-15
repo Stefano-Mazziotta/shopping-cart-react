@@ -2,12 +2,14 @@ import './style.css'
 import { useId } from 'react'
 
 import { CartIcon } from '../icons'
+import { CartItem } from './CartItem'
 import { useCart } from '../../hooks/useCart'
 
 export function Cart() {
   const { cart, decrementQuantity, incrementQuantity } = useCart()
 
   const cartCheckboxId = useId()
+  const existProductsInCart = cart.length > 0
 
   return (
     <>
@@ -20,25 +22,16 @@ export function Cart() {
         <ul>
           {
             cart.map(product => {
-
-              return (
-                <li key={product.id}>
-                  <img src={product.thumbnail} alt={product.description} />
-                  <div>
-                    <strong>{product.title}</strong> - ${product.price}
-                  </div>
-                  <footer>
-                    <small>
-                      quantity: {product.quantity}
-                    </small>
-                    <button onClick={() => {decrementQuantity(product)}}>-</button>
-                    <button onClick={() => {incrementQuantity(product)}}>+</button>
-                  </footer>
-                </li>
-              )
+              return <CartItem
+                key={product.id}
+                product={product}
+                decrementQuantity={decrementQuantity}
+                incrementQuantity={incrementQuantity} 
+              />
             })
           }
         </ul>
+        {!existProductsInCart && <p style={{paddingTop:'20px'}}>No hay productos en el carrito</p>}
       </aside>
     </>
   )
