@@ -1,12 +1,12 @@
 import './style.css'
 import { useId } from 'react'
 
-import { CartIcon } from '../icons'
+import { CartIcon, RemoveFromCartIcon } from '../icons'
 import { CartItem } from './CartItem'
 import { useCart } from '../../hooks/useCart'
 
 export function Cart () {
-  const { cart, decrementQuantity, incrementQuantity } = useCart()
+  const { cart, decrementQuantity, incrementQuantity, clearCart } = useCart()
 
   const cartCheckboxId = useId()
   const existProductsInCart = cart.length > 0
@@ -33,6 +33,10 @@ export function Cart () {
             })
           }
         </ul>
+
+        {existProductsInCart && (
+          <button onClick={clearCart}><RemoveFromCartIcon /></button>
+        )}
         {!existProductsInCart && <p style={{ paddingTop: '20px' }}>No hay productos en el carrito</p>}
       </aside>
     </>

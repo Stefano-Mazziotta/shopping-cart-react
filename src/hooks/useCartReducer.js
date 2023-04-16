@@ -24,5 +24,9 @@ export function useCartReducer () {
     payload: product
   })
 
-  return { cart, addToCart, removeFromCart, decrementQuantity, incrementQuantity }
+  const clearCart = () => dispatch({
+    type: CART_ACTION_TYPES.CLEAR_CART
+  })
+
+  return { cart, addToCart, removeFromCart, decrementQuantity, incrementQuantity, clearCart }
 }

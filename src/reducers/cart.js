@@ -4,11 +4,12 @@ export const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
   REMOVE_FROM_CART: 'REMOVE_FROM_CART',
   DECREMENT_QUANTITY: 'DECREMENT_QUANTITY',
-  INCREMENT_QUANTITY: 'INCREMENT_QUANTITY'
+  INCREMENT_QUANTITY: 'INCREMENT_QUANTITY',
+  CLEAR_CART: 'CLEAR_CART'
 }
 
 // update localStorage with state for cart
-export const updateLocalStorage = cart => {
+const updateLocalStorage = cart => {
   window.localStorage.setItem('cart', JSON.stringify(cart))
 }
 
@@ -60,6 +61,10 @@ export const UPDATE_STATE_BY_ACTION = {
 
       return newCart
     }
+  },
+  [CART_ACTION_TYPES.CLEAR_CART]: () => {
+    updateLocalStorage([])
+    return []
   }
 }
 
